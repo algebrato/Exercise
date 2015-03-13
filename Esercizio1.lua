@@ -30,30 +30,3 @@ l = quadrato:new(a,b);
 
 print(l:area())
 
-
-
-putrandom = function(a)
-	bit.rshift(a,10)
-	bit.cast(a)
-	return a
-end
-
-
-
-
-
-a=10
-
-for i=0,10,1 do
-	putrandom(a)
-	print(a)
-end
-		
-
-
-
-
-
-
-
-
