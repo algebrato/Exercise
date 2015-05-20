@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>effect demo</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background: #ccc;
+				border: 1px solid #000;
+			}
+		</style>
+		<script src="/usr/share/javascript/jquery-ui/jquery-ui.js"></script>
+	</head>
+	<body>
+		<p>Click anywhere to apply the effect.</p>
+		<div></div>
+		<script>
+			$( document ).click(function() {
+				$( "div" ).effect( "bounce", "slow" );
+			});
+		</script>
+	</body>
+</html>
