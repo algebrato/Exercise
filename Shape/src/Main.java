@@ -58,3 +58,13 @@ class Circle extends Shape{
 		System.out.println("Draw Circle");
 	}
 }
+
+
+class Triangle extends Shape{
+	void erase(){
+		System.out.println("Erase Triangle");
+	}
+	void draw(){
+		System.out.println("Draw Triangle");
+	}
+}
