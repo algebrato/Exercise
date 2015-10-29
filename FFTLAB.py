@@ -4,15 +4,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def my_funtion(t):
-    p = np.sin(t) + 2*np.sin(10*t)+10*np.sin(50*t)+3*np.sin(20*t) 
+    p = np.sin(t)+2*np.sin(2*t)+10*np.sin(4*t) 
     return p
 
-punti = 20
+
+Freq_campionamento = 10;
+punti = 51
 
 t = np.arange(punti)
-x = (t*2*3.1415)/punti
+x = (t*2*3.1415)/Freq_campionamento+(t.shape[-1]*2*3.1415)/punti
 
-freq = np.fft.fftfreq(t.shape[-1],d=1./punti)
+freq = np.fft.fftfreq(t.shape[-1],d=1./(Freq_campionamento) )
 S = np.fft.fft(my_funtion(x))
 F = np.abs(freq)
 A = np.abs(S*2/punti)
