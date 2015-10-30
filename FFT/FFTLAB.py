@@ -1,33 +1,48 @@
 #!/usr/bin/python
 
+#default module
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
+import string
+
+#personal module
 import funct
 
     
-def DO_FFT():
-    Freq_campionamento = 5;
-    punti = 51
+def DO_FFT(x,y):
+    
+    Freq_campionamento = 1./(x[1]-x[0])
+    punti = y.shape[-1]
 
     t = np.arange(punti)
-    x = (t*2*3.1415)/Freq_campionamento+(t.shape[-1]*2*3.1415)/punti
-
     freq = np.fft.fftfreq(t.shape[-1],d=1./(Freq_campionamento) )
-    S = np.fft.fft(funct.my_funct(x))
+    S = np.fft.fft(y)
     F = np.abs(freq)
     A = np.abs(S*2/punti)
 
+    print ("Freq di campionamento = %s Hz" % Freq_campionamento)
+    print ("Numero punti          = %s" % punti)
+
+    
+
     plt.subplot(211)
-    plt.plot(x,funct.my_funct(x),'bo',x, funct.my_funct(x),'k')
+    plt.plot(x, y,'k')
 
     plt.subplot(212)
     plt.plot(F,A,'bo',F,A,'k')
 
-    dati_out = np.array([x,funct.my_funct(x)])
-
     plt.show()
 
+
+def load_file(nome_file):
+    dati = np.loadtxt(nome_file)
+    x,y= dati[:,0], dati[:,1]
+    return x,y
+
+
 if __name__ == '__main__':
-    DO_FFT()
+    x,y=load_file(sys.argv[1])
+    DO_FFT(x,y)
 
 
