@@ -21,8 +21,8 @@ def DO_FFT(x,y):
     F = np.abs(freq)
     A = np.abs(S*2/punti)
 
-    print ("Freq di campionamento = %s Hz" % Freq_campionamento)
-    print ("Numero punti          = %s" % punti)
+    print ("Sampling    = %s Hz" % Freq_campionamento)
+    print ("#Points     = %s" % punti)
 
     
 
@@ -36,19 +36,27 @@ def DO_FFT(x,y):
 
 
 def load_file(nome_file):
-    dati = np.loadtxt(nome_file)
+    try:
+        dati = np.loadtxt(nome_file)
+        print "Load data from file: "+nome_file
+    except IOError as e:
+        print "I/O error({0}): {1}".format(e.errno, e.strerror) 
+        exit(7)
+
     x,y= dati[:,0], dati[:,1]
     return x,y
 
 
 if __name__ == '__main__':
+    print "FFT - build periodigram"
+    print "Usage: ./FFTLAB.py [File]\n"
     n = len(sys.argv)
     if n < 2:
-        print "Err < 2"
-        quit()
+        print "Error: too few arguments"
+        exit(1)
     if n > 2:
-        print "Err > 2"
-        quit()
+        print "Error: too many arguments"
+        exit(2)
     
     x,y=load_file(sys.argv[1])
     DO_FFT(x,y)
