@@ -27,7 +27,7 @@ def DO_FFT(x,y):
     
 
     plt.subplot(211)
-    plt.plot(x, y,'k')
+    plt.plot(x, y,'k',x,y,'bo')
 
     plt.subplot(212)
     plt.plot(F,A,'bo',F,A,'k')
@@ -42,6 +42,14 @@ def load_file(nome_file):
 
 
 if __name__ == '__main__':
+    n = len(sys.argv)
+    if n < 2:
+        print "Err < 2"
+        quit()
+    if n > 2:
+        print "Err > 2"
+        quit()
+    
     x,y=load_file(sys.argv[1])
     DO_FFT(x,y)
 
