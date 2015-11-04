@@ -1,0 +1,7 @@
+FFT - build periodigram
+Usage: ./FFTLAB.py [File]
+
+Load data from file: segnale.dat
+Sampling    = 19.098593171 Hz
+#Points     = 50000
+Max         = 0.0

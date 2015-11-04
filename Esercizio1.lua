@@ -7,6 +7,9 @@ end
 print(fattt(4))
 
 
+print(fattt(5))
+
+
 
 quadrato = {x,y}
 quadrato.new= function(self,x,y)
