@@ -22,22 +22,18 @@ def DO_FFT(x,y):
     A = np.abs(S*2/punti)
 
 
-    p50=np.poly1d(np.polyfit(F, A, 50))
-    p49=p50.deriv()
-    roots=p49.r
-
 
     print ("Sampling    = %s Hz" % Freq_campionamento)
     print ("#Points     = %s" % punti)
-    print ("dp/dx=0     : %s" % roots)
-
+    peak=return_peak(F,A)
+    print peak #non va.
     
 
     plt.subplot(211)
     plt.plot(x, y,'k',x,y,'bo')
 
     plt.subplot(212)
-    plt.plot(F,A,'bo',F,p50(F),'--')
+    plt.plot(F,A,'bo')
 
     plt.show()
 
@@ -54,13 +50,20 @@ def load_file(nome_file):
     return x,y
 
 def return_peak(F,A):
+    peak = np.array([]);
     massimo=0.
     
     for i in range(len(F)/2-1):
         if(abs(A[i+1]-A[i])> 1.3 ):
-            print abs(A[i+1]-A[i]),F[i+1]
+            massimo=A[i]
+            if(A[i+1] > massimo):
+                massimo=F[i+1]
+                np.append(peak,[massimo])
+            print massimo
 
-    return massimo
+
+    return peak
+
 
 
 
