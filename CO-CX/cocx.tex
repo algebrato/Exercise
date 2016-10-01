@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{tikz}
+
+\begin{document}
+\begin{figure}
+	\begin{tikzpicture}[scale=1,auto=center]
+		\draw[<-] (15,9) -r (5,4);
+		\node at (13,7.7) [rotate=30] {Propagation};
+		%E Field
+		\draw[->] (11,4.75) -- (11,6.75);
+		\draw[->] (10.5,5.25) -- (10.5,7.25);
+		\draw[->] (10,5.75) -- (10,7.75);
+		\draw[->] (9.5,6.25) -- (9.5,8.25);
+		\draw[->] (9,6.75) -- (9,8.75);
+		\draw[->] (8.5,7.25) -- (8.5,9.25);
+		\draw[->] (8,7.75) -- (8,9.75);
+		
+		%Plan E direction
+		\draw[dashed] (11.5,2) -- (11.5,9);
+		\draw[dashed] (7.5,5.5) -- (7.5,12.5);
+		\draw[dashed] (11.5,2) -- (7.5,5.5);
+		\draw[dashed] (11.5,9) -- (7.5,12.5);
+	
+		\node at (11,8.9) [rotate=-40] {E Field};
+
+
+		%Plan H direction
+		\draw[dashed] (10,10.2) -- (5,8);
+		\draw[dashed] (15,6) --  (10,3.5);
+		\draw[dashed] (10,10.2) -- (15,6);
+		\draw[dashed] (5,8) -- (10,3.5);
+		\node at (14,5.85) [rotate=30] {H Field};
+		
+		\draw [rotate around={-40:(15,9)}] (15,9) ellipse (0.75 and 0.5);
+		\draw[<->,rotate around={50:(8,10.2)}] (8,10.2) arc (-45:40:-6);
+		\node at (15,5.2) [scale=1.2, rotate=15] {$\vartheta$ direction};
+
+
+	\end{tikzpicture}
+\end{figure}
+\end{document}
