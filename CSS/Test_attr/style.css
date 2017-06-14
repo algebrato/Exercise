@@ -1,0 +1,12 @@
+body {
+	color: red;
+}
+
+
+.tabella {
+}
+
+
+.tabella td:after {
+	content: " (" attr(data-th) ")" ;
+}
