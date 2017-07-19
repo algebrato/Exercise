@@ -45,13 +45,21 @@ public class MultiBtnSource extends Frame{
 			Button source = (Button)evt.getSource();
 
 			if(source == btnCountUp){
-				++count;
+				Thread thread = new Thread() {
+					public void run(){
+						for(;;){
+							++count;
+							tfCount.setText(count + "");
+						}
+					}
+				};
+				thread.start();
 			} else if (source == btnCountDown){
 				--count;
 			} else {
 				count = 0;
+				tfCount.setText(count + "");
 			}
-			tfCount.setText(count + "");
 		}
 	}
 }	
